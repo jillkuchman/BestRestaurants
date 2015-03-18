@@ -28,6 +28,7 @@
 
         function test_getId()
         {
+            //Arrange
             $food_type = "Pizza";
             $id = 1;
             $test_Cuisine = new Cuisine($food_type, $id);
@@ -42,6 +43,7 @@
 
         function test_setId()
         {
+            //Arrange
             $food_type = "Mexican";
             $id = null;
             $test_Cuisine = new Cuisine($food_type, $id);
@@ -54,20 +56,41 @@
             $this->assertEquals(2, $result);
         }
 
-        // function test_setId()
+        function test_getAll()
+        {
+            //Arrange
+            $food_type1 = "Mexican";
+            $id1 = null;
+            $food_type2 = "Pizza";
+            $id2 = null;
+            $test_Cuisine1 = new Cuisine($food_type1, $id1);
+            $test_Cuisine1->save();
+            $test_Cuisine2 = new Cuisine($food_type2, $id2);
+            $test_Cuisine2->save();
+
+            //Act
+            $result = Cuisine::getAll();
+
+            //Assert
+            $this->assertEquals([$test_Cuisine1, $test_Cuisine2], $result);            
+        }
+
+        // function test_save()
         // {
         //     //Arrange
-        //     $food = "Pizza";
+        //     $food_type = "Food truck";
         //     $id = null;
-        //     $test_Cuisine = new Cuisine($food, $id);
+        //     $test_Cuisine = new Cuisine($food_type, $id);
+        //     $test_Cuisine->save();
         //
         //     //Act
-        //     $test_Cuisine->setId(2);
+        //     $result = Cuisine::getAll();
         //
         //     //Assert
-        //     $result = $test_Cuisine->getId();
-        //     $this->assertEquals(2, $result);
+        //     $this->assertEquals($test_Cuisine, $result[2]);
         // }
+
+
 
     }
 

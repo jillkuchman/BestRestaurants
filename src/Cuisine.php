@@ -28,15 +28,11 @@
             $this->id = (int) $new_id;
         }
 
-        // function setFoodType($new_food_type)
-        // {
-        //     $this->food_type = (string) $new_food_type;
-        // }
-        //
-        // function getId()
-        // {
-        //     return $this->id;
-        // }
+        static function getAll()
+        {
+            
+        }
+
     }
 
 ?>
