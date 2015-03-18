@@ -13,7 +13,19 @@
             $this->cuisine_id = $cuisine_id;
         }
 
+        function setId($new_id)
+        {
+            $this->id = (int) $new_id;
+        }
 
+        function getId()
+        {
+            return $this->id;
+        }
+
+
+
+    }
 
 
 ?>
