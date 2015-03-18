@@ -30,7 +30,7 @@
     $app->get("/cuisines/{id}", function($id) use ($app)
     {
         $cuisine= Cuisine::find($id);
-        return $app['twig']->render('cuisines.twig', array('cuisine' => $cuisine, 'restaurant'=>$cuisine->getRestaurants()));
+        return $app['twig']->render('cuisines.twig', array('cuisine' => $cuisine, 'restaurants'=>$cuisine->getRestaurants()));
     });
 
     return $app;

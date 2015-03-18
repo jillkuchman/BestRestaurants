@@ -1,0 +1,22 @@
+<html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <title>Best Restaurants</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ cuisine.getFoodType }}</h1>
+
+        {% if restaurants is not empty %}
+        <p>Here be restaurants servered the cuisine you want: </p>
+        <ul>
+            {% for restaurant in restaurants %}
+                <li>{{restaurant.getRestaurant}} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+    </div>
+</body>
+</html>
