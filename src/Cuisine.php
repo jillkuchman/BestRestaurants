@@ -23,9 +23,9 @@
             return $this->id;
         }
 
-        function setId()
+        function setId($new_id)
         {
-            
+            $this->id = (int) $new_id;
         }
 
         // function setFoodType($new_food_type)
