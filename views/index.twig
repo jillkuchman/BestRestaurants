@@ -1,0 +1,28 @@
+<html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <title>Best Restaurants</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>FOOD!</h1>
+        <form action="/cuisines" method="post">
+            <div class="form-group">
+                <label for="food_type">What type of cuisine would you like to add?</label>
+                <input type="text" name="food_type" id="food_type" class="form-control">
+            </div>
+            <button type="submit">Add Cuisine</button>
+        </form>
+
+        {% if cuisines is not empty %}
+            <p>Select a cuisine:</p>
+            <ul>
+                {% for food_type in cuisines %}
+                    <li><a href="/cuisines/{{ food_type.getId }}">{{ food_type.getFoodType }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
