@@ -26,6 +26,20 @@
             $this->assertEquals($food_type, $result);
         }
 
+        function test_getId()
+        {
+            $food_type = "Pizza";
+            $id = 1;
+            $test_Cuisine = new Cuisine($food_type, $id);
+
+            //Act
+            $result = $test_Cuisine->getId();
+
+            //Assert
+            $this->assertEquals(1, $result);
+
+        }
+
         // function test_setId()
         // {
         //     //Arrange
