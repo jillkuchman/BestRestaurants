@@ -18,7 +18,13 @@
     $DB = new PDO('pgsql:host=localhost;dbname=restaurants');
 
     $app->get("/", function() use ($app) {
-            return $app['twig']->render('index.twig', array('cuisines' => Cuisine::getAll()));
+        return $app['twig']->render('index.twig', array('cuisines' => Cuisine::getAll()));
+    });
+
+    $app->post("/cuisines", function() use ($app) {
+        $food_type = new Cuisine($_POST['food_type']);
+        $food_type->save();
+        return $app['twig']->render('index.twig', array('cuisines' => Cuisine::getAll()));
     });
 
     return $app;
