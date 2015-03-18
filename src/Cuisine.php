@@ -23,6 +23,11 @@
             return $this->id;
         }
 
+        function setId()
+        {
+            
+        }
+
         // function setFoodType($new_food_type)
         // {
         //     $this->food_type = (string) $new_food_type;

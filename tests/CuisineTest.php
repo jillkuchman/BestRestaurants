@@ -40,6 +40,20 @@
 
         }
 
+        function test_setId()
+        {
+            $food_type = "Mexican";
+            $id = null;
+            $test_Cuisine = new Cuisine($food_type, $id);
+
+            //Act
+            $test_Cuisine->setId(2);
+            $result = $test_Cuisine->getId();
+
+            //Assert
+            $this->assertEquals(2, $result);
+        }
+
         // function test_setId()
         // {
         //     //Arrange
