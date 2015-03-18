@@ -198,6 +198,30 @@
             $this->assertEquals([], $result);
         }
 
+        function test_find()
+        {
+            //Arrange
+            $food_type = "Fancy";
+            $id = null;
+            $test_cuisine = new Cuisine($food_type, $id);
+            $test_cuisine->save();
+
+            $restaurant_name = "Jakes";
+            $cuisine_id = $test_cuisine->getId();
+            $test_restaurant = new Restaurant($id, $restaurant_name, $cuisine_id);
+            $test_restaurant->save();
+
+            $restaurant_name2 = "Finns";
+            $test_restaurant2 = new Restaurant($id, $restaurant_name2, $cuisine_id);
+            $test_restaurant2->save();
+
+            //Act
+            $result = Restaurant::find($test_restaurant->getId());
+
+            //Assert
+            $this->assertEquals($test_restaurant, $result);
+        }
+
 
     }
 
