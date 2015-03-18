@@ -46,7 +46,7 @@
             $restaurants = array();
             $returned_restaurants = $GLOBALS['DB']->query("SELECT*FROM restaurants WHERE cuisine_id = {$this->getId()};");
             foreach($returned_restaurants as $restaurant) {
-                $restaurant_name = $restaurant['name'];
+                $restaurant_name = $restaurant['restaurant_name'];
                 $id = $restaurant['id'];
                 $cuisine_id = $restaurant['cuisine_id'];
                 $new_restaurant = new Restaurant($id, $restaurant_name, $cuisine_id);

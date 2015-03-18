@@ -17,6 +17,17 @@
         </ul>
         {% endif %}
 
+        <h4>Add a new restaurant</h4>
+        <form action="/relevant_restaurants" method="post">
+
+            <input id="cuisine_id" name="cuisine_id" type="hidden" value="{{ cuisine.getId() }}">
+
+            <label for='restaurant'>Restaurant Name</label>
+            <input id='restaurant' name='restaurant' type='text'>
+
+            <button type="submit" class="btn btn-danger">Add a new Restaurant</button>
+        </form>
+
     </div>
 </body>
 </html>

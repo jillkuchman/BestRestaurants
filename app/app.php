@@ -33,6 +33,16 @@
         return $app['twig']->render('cuisines.twig', array('cuisine' => $cuisine, 'restaurants'=>$cuisine->getRestaurants()));
     });
 
+    $app->post("/relevant_restaurants", function() use ($app){
+        $new_restaurant = $_POST['restaurant'];
+        $cuisine_id = $_POST['cuisine_id'];
+        $restaurant = new Restaurant($id=null, $new_restaurant, $cuisine_id);
+        $restaurant->save();
+        $cuisine = Cuisine::find($cuisine_id);
+        return $app['twig']->render('cuisines.twig', array('cuisine'=>$cuisine, 'restaurants'=>$cuisine->getRestaurants()));
+    });
+
+
     return $app;
 
 
