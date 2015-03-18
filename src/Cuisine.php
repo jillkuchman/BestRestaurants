@@ -48,6 +48,11 @@
             $this->setId($result['id']);
         }
 
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM cuisines *;");
+        }
+
     }
 
 ?>

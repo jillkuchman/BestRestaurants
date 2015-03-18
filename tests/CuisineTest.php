@@ -12,6 +12,10 @@
 
     class CuisineTest extends PHPUnit_Framework_TestCase
     {
+        protected function tearDown()
+        {
+            Cuisine::deleteAll();
+        }
         function test_getFoodType()
         {
             //Arrange
@@ -87,7 +91,7 @@
             $result = Cuisine::getAll();
 
             //Assert
-            $this->assertEquals($test_Cuisine, $result[2]);
+            $this->assertEquals($test_Cuisine, $result[0]);
         }
 
         function test_deleteAll()
