@@ -30,7 +30,22 @@
 
         static function getAll()
         {
-            
+            $returned_cuisines = $GLOBALS['DB']->query("SELECT * FROM cuisines;");
+            $cuisines = array();
+            foreach($returned_cuisines as $cuisine) {
+                $food_type = $cuisine['food_type'];
+                $id = $cuisine['id'];
+                $new_cuisine = new Cuisine($food_type, $id);
+                array_push($cuisines, $new_cuisine);
+            }
+            return $cuisines;
+        }
+
+        function save()
+        {
+            $statement = $GLOBALS['DB']->query("INSERT INTO cuisines (food_type) VALUES ('{$this->getFoodType()}') RETURNING id;");
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            $this->setId($result['id']);
         }
 
     }

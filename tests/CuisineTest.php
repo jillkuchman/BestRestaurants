@@ -72,23 +72,23 @@
             $result = Cuisine::getAll();
 
             //Assert
-            $this->assertEquals([$test_Cuisine1, $test_Cuisine2], $result);            
+            $this->assertEquals([$test_Cuisine1, $test_Cuisine2], $result);
         }
 
-        // function test_save()
-        // {
-        //     //Arrange
-        //     $food_type = "Food truck";
-        //     $id = null;
-        //     $test_Cuisine = new Cuisine($food_type, $id);
-        //     $test_Cuisine->save();
-        //
-        //     //Act
-        //     $result = Cuisine::getAll();
-        //
-        //     //Assert
-        //     $this->assertEquals($test_Cuisine, $result[2]);
-        // }
+        function test_save()
+        {
+            //Arrange
+            $food_type = "Food truck";
+            $id = null;
+            $test_Cuisine = new Cuisine($food_type, $id);
+            $test_Cuisine->save();
+
+            //Act
+            $result = Cuisine::getAll();
+
+            //Assert
+            $this->assertEquals($test_Cuisine, $result[2]);
+        }
 
 
 
