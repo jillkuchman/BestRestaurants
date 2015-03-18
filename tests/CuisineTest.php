@@ -90,6 +90,26 @@
             $this->assertEquals($test_Cuisine, $result[2]);
         }
 
+        function test_deleteAll()
+        {
+            //Arrange
+            $food_type1 = "Mexican";
+            $id1 = null;
+            $food_type2 = "Pizza";
+            $id2 = null;
+            $test_Cuisine1 = new Cuisine($food_type1, $id1);
+            $test_Cuisine1->save();
+            $test_Cuisine2 = new Cuisine($food_type2, $id2);
+            $test_Cuisine2->save();
+
+            //Act
+            Cuisine::deleteAll();
+            $result = Cuisine::getAll();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
+
 
 
     }
