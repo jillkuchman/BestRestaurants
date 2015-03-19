@@ -6,9 +6,14 @@
     <form action="/cuisines/{{ cuisine.getId }}" method="post">
         <input type="hidden" name="_method" value="patch">
 
-        <label for="food_type">Enter the food type:</label>
+        <label for="food_type">Rename the cuisine:</label>
         <input type="text" name="food_type" id="food_type">
         <button type="submit">Update</button>
 
+    </form>
+
+    <form action="/cuisines/{{ cuisine.getId }}" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <button type="submit">Delete this cuisine</button>
     </form>
 </div>

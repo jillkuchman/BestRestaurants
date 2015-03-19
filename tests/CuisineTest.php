@@ -188,6 +188,26 @@
             $this->assertEquals([$test_cuisine2], Cuisine::getAll());
         }
 
+        function testDeleteCuisineTypeFromRestaurant()
+        {
+            //Arrang
+            $cuisine = "Sea Crab";
+            $id = null;
+            $test_cuisine = new Cuisine($cuisine, $id);
+            $test_cuisine->save();
+
+            $restaurant = "Mom Kitchen";
+            $cuisine_id = $test_cuisine->getId();
+            $test_restaurant = new Restaurant($id, $restaurant, $cuisine_id);
+            $test_restaurant->save();
+
+            //Act
+            $test_cuisine->delete();
+
+            //Assert
+            $this->assertEquals([], Restaurant::getAll());
+        }
+
     }
 
 
