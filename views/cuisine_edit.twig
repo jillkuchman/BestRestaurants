@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<div class ="container">
+    <h1>Update the {{ cuisine.getFoodType }} cuisine</h1>
+
+    <form action="/cuisines/{{ cuisine.getId }}" method="post">
+        <input type="hidden" name="_method" value="patch">
+
+        <label for="food_type">Enter the food type:</label>
+        <input type="text" name="food_type" id="food_type">
+        <button type="submit">Update</button>
+
+    </form>
+</div>
