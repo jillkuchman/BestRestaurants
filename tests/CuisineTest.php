@@ -168,6 +168,25 @@
 
         }
 
+        function testDeleteCusine()
+        {
+            //Arrange
+            $cuisine = "Prime Steak";
+            $id = 1;
+            $test_cuisine = new Cuisine($cuisine, $id);
+            $test_cuisine->save();
+
+            $cuisine2 = "Lobster";
+            $id2=2;
+            $test_cuisine2 = new Cuisine($cuisine2, $id2);
+            $test_cuisine2->save();
+
+            //Act
+            $test_cuisine->delete();
+
+            //Assert
+            $this->assertEquals([$test_cuisine2], Cuisine::getAll());
+        }
 
     }
 

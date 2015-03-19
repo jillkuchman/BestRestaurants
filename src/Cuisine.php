@@ -94,6 +94,11 @@
             $this->setFoodType($new_food_type);
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM cuisines WHERE id={$this->getId()};");
+        }
+
     }
 
 ?>
