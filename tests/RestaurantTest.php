@@ -7,6 +7,7 @@
 
     require_once "src/Restaurant.php";
     require_once "src/Cuisine.php";
+    require_once "src/Review.php";
 
     $DB = new PDO('pgsql:host=localhost;dbname=restaurants_test');
 
