@@ -13,6 +13,11 @@
             $this->food_type = $food_type;
         }
 
+        function setFoodType($new_food_type)
+        {
+            $this->food_type = (string) $new_food_type;
+        }
+
         function getFoodType()
         {
             return $this->food_type;
@@ -81,6 +86,12 @@
             }
             return $found_cuisine;
 
+        }
+
+        function updateType($new_food_type)
+        {
+            $GLOBALS['DB']->exec("UPDATE cuisines SET food_type = '{$new_food_type}' WHERE id = {$this->getId()};");
+            $this->setFoodType($new_food_type);
         }
 
     }

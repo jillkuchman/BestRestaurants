@@ -30,6 +30,23 @@
             $this->assertEquals($food_type, $result);
         }
 
+        function test_setFoodType()
+        {
+            //Arrange
+            $food_type = "Soup";
+            $id = null;
+            $test_Cuisine = new Cuisine($food_type, $id);
+            $test_Cuisine->save();
+
+            //Act
+            $test_Cuisine->setFoodType("Bread");
+
+            $result = $test_Cuisine->getFoodType();
+
+            //Assert
+            $this->assertEquals($result, "Bread");
+        }
+
         function test_getId()
         {
             //Arrange
@@ -131,6 +148,24 @@
 
             //Assert
             $this->assertEquals($test_Cuisine, $result);
+        }
+
+        function test_updateType()
+        {
+            //Arrange
+            $food_type = "Japanese";
+            $id = 1;
+            $test_cuisine = new Cuisine ($food_type, $id);
+            $test_cuisine->save();
+
+            $new_food_type = "Chinese";
+
+            //Act
+            $test_cuisine->updateType($new_food_type);
+
+            //Assert
+            $this->assertEquals("Chinese", $test_cuisine->getFoodType());
+
         }
 
 
