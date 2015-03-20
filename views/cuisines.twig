@@ -9,10 +9,10 @@
         <h1>{{ cuisine.getFoodType }}</h1>
 
         {% if restaurants is not empty %}
-        <p>Here be restaurants servered the cuisine you want: </p>
+        <p>Here are restaurants that serve the cuisine you want: </p>
         <ul>
             {% for restaurant in restaurants %}
-                <li>{{restaurant.getRestaurant}} </li>
+                <li><a href="/restaurants/{{ restaurant.getId }}/edit">{{restaurant.getRestaurant}} </a></li>
             {% endfor %}
         </ul>
         {% endif %}

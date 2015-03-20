@@ -17,6 +17,7 @@
         {
             Restaurant::deleteAll();
             Cuisine::deleteAll();
+            Review::deleteAll();
         }
 
         function test_getId()
@@ -221,6 +222,33 @@
 
             //Assert
             $this->assertEquals($test_restaurant, $result);
+        }
+
+        function test_getReviews()
+        {
+            $restaurant_name = "Pizza";
+            $id = null;
+            $cuisine_id = 2;
+            $test_restaurant = new Restaurant($id, $restaurant_name, $cuisine_id);
+            $test_restaurant->save();
+
+            $review_content = "Tasty";
+            $restaurant_id = $test_restaurant->getId();
+            $test_review = new Review($id, $review_content, $restaurant_id);
+            $test_review->save();
+
+            $review_content2 = "Icky";
+            $restaurant_id = $test_restaurant->getId();
+            $test_review2 = new Review($id, $review_content2, $restaurant_id);
+            $test_review2->save();
+
+            //Act
+            $result = $test_restaurant->getReviews();
+
+            //Assert
+            $this->assertEquals("Tasty", $result[0]->getReview());
+
+
         }
 
 

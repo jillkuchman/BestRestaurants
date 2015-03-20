@@ -3,6 +3,7 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Cuisine.php";
     require_once __DIR__."/../src/Restaurant.php";
+    require_once __DIR__."/../src/Review.php";
 
     use Symfony\Component\Debug\Debug;
     Debug::enable();
@@ -44,6 +45,22 @@
         $cuisine = Cuisine::find($cuisine_id);
         return $app['twig']->render('cuisines.twig', array('cuisine'=>$cuisine, 'restaurants'=>$cuisine->getRestaurants()));
     });
+
+    $app->post("/restaurant_review", function() use ($app) {
+        $new_review = $_POST['new_review'];
+            $restaurant_id = $_POST['restaurant_id'];
+            $review = new Review($id=null, $new_review, $restaurant_id);
+            $review->save();
+            $restaurant = Restaurant::find($restaurant_id);
+            $reviews = $restaurant->getReviews;
+            return $app['twig']->render('restaurant_review.twig', array('restaurant'=>$restaurant, 'reviews'=>$reviews));
+    });
+
+    $app->get("/restaurants/{id}/edit", function($id) use ($app){
+        $restaurant = Restaurant::find($id);
+        return $app['twig']->render('restaurant_review.twig', array('restaurant'=>$restaurant, 'reviews'=>$restaurant->getReviews()));
+    });
+
 
     $app->post("/delete_cuisines", function() use ($app) {
         Cuisine::deleteAll();

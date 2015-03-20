@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<div class="container">
+    <h1>{{ restaurant.getRestaurant }}</h1>
+
+    {% if reviews is not empty %}
+    <p>Here are reviews for the restaurant</p>
+    <ul>
+        {% for review in reviews %}
+        <li>{{ review.getReviews }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+
+    <h4>Add a new review</h4>
+    <form action="/restaurant_review" method="post">
+
+        <input id="restaurant_id" name="restaurant_id" type="hidden" value="{{ restaurant.getId() }}">
+
+        <label for='new_review'>Your comment or review</label>
+        <input id='new_review' name='new_review' type='text'>
+
+        <button type="submit" class="btn btn-danger">Post your comment</button>
+    </form>
+
+
+</div>
